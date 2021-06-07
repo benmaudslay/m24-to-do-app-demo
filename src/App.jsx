@@ -1,24 +1,22 @@
 import "./App.css";
 import React, { useState } from "react";
 
+import Form from "./components/Form.jsx";
+
 const App = () => {
-  const [userInput, setUserInput] = useState("");
+  const handleForm = (banana) => {
+    console.log(banana);
+  };
 
   return (
     <div>
       <h1>To-Do App</h1>
-      <input
-        type="text"
-        value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
-      />
-      <button>Submit</button>
-      <h4>{userInput}</h4>
-      <ul>
+      <Form handleForm={handleForm} />
+      {/* <ul>
         <li>item 1</li>
         <li>item 2</li>
         <li>item 3</li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
