@@ -1,22 +1,24 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Form from "./components/Form.jsx";
 
 const App = () => {
-  const handleForm = (banana) => {
-    console.log(banana);
+  const [todoItems, setTodoItems] = useState([]);
+
+  const handleForm = (userInput) => {
+    setTodoItems([...todoItems, userInput]);
   };
 
   return (
     <div>
       <h1>To-Do App</h1>
       <Form handleForm={handleForm} />
-      {/* <ul>
-        <li>item 1</li>
-        <li>item 2</li>
-        <li>item 3</li>
-      </ul> */}
+      <ul>
+        {todoItems.map((item, index) => {
+          return <li key={index}>{item}</li>;
+        })}
+      </ul>
     </div>
   );
 };
