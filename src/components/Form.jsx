@@ -9,6 +9,8 @@ const Form = ({ handleForm }) => {
     setUserInput("");
   };
 
+  const isDisabled = userInput.length === 0;
+
   return (
     <form onSubmit={handleSubmit}>
       <input
@@ -16,7 +18,9 @@ const Form = ({ handleForm }) => {
         value={userInput}
         onChange={(e) => setUserInput(e.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={isDisabled}>
+        Submit
+      </button>
     </form>
   );
 };
